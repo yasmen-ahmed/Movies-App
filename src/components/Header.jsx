@@ -3,6 +3,7 @@ import MenuItem from './MenuItem'
 import {AiFillHome} from 'react-icons/ai'
 import {AiFillInfoCircle } from 'react-icons/ai'
 import Link from 'next/link'
+import DarkMoodSwiper from './DarkMoodSwiper'
 
 export default function Header() {
   return (
@@ -11,10 +12,14 @@ export default function Header() {
             <MenuItem title="Home" address="/" Icon={AiFillHome}/>
             <MenuItem title="About" address="/about" Icon={AiFillInfoCircle }/>
         </div>
+        <div className="flex items-center gap-4">
+            <DarkMoodSwiper/>
         <Link href={'/'} className='flex gap-1 items-center'>
             <span className='text-2xl font-bold bg-amber-500 py-1 px-2 rounded-lg'>Movies</span>
             <span className='text-xl hidden sm:inline'>App</span>
         </Link>
+        </div>
+      
     </div>
   )
 }

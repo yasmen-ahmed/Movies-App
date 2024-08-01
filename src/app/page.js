@@ -11,20 +11,14 @@ export default async function Home({searchParams}) {
   const genre =searchParams.genre || 'fetchTrending'
 
 
-  const res =await new Promise((resolve)=>{
-setTimeout(async ()=>{
-
-  const response = await fetch(`https://api.themoviedb.org/3${
+  const res = await fetch(`https://api.themoviedb.org/3${
     genre === 'fetchTopRated'? `/movie/top_rated` : `/trending/all/week`}?api_key=${API_KEY}&languages=en-US&page=1`,
   
-  {next:{revalidate:10}}
+  {next:{revalidate:1000}}
 
 )
 
-resolve(response);
-},1000)
-  
-})
+
 
     const data = await res.json()
     if(!res.ok){
